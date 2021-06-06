@@ -1,4 +1,6 @@
-const path = require('path');
+const os = require('os');
 
-const parsedObj = path.parse(__dirname);
-console.log(parsedObj);
+const totalMemory = os.totalmem();
+const freeMemory = os.freemem();
+console.log(`Total memory: ${totalMemory}`);
+console.log(`Free memory: ${freeMemory}`);
