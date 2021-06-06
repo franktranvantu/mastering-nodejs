@@ -1,9 +1,3 @@
-console.log();
+const log = require('./logger');
 
-setTimeout();
-clearTimeout();
-
-setInterval();
-clearInterval();
-
-var message = '';
+log('Welcome to NodeJS');
