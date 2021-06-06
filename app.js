@@ -1,3 +1,4 @@
-const log = require('./logger');
+const path = require('path');
 
-log('Welcome to NodeJS');
+const parsedObj = path.parse(__dirname);
+console.log(parsedObj);
