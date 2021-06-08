@@ -1,4 +1,5 @@
-# Nodemon
+# Environment Variables
 ```bash
-npm i -g nodemon
+Mac: export PORT=5000
+Windows: set PORT=5000
 ```
