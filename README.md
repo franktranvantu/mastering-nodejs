@@ -1,1 +1,1 @@
-# Synchronous vs Asynchronous Code
+# Patterns for Dealing with Asynchronous Code
