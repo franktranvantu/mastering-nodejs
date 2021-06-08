@@ -1,1 +1,1 @@
-# Event Arguments
+# Extending EventEmitter
