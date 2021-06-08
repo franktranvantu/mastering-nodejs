@@ -1,4 +1,13 @@
-const _ = require('underscore');
+const express = require('express');
 
-const result = _.contains([1, 2, 3], 2);
-console.log(result);
+const app = express();
+
+app.get('/', (req, res) => {
+  res.send('Hello World');
+});
+
+app.get('/api/courses', (req, res) => {
+  res.send(JSON.stringify([1, 2, 3]));
+});
+
+app.listen(3000, () => console.log('Listening on port 3000...'));
