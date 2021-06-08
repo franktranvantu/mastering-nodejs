@@ -14,9 +14,9 @@ app.get('/api/courses/:id', (req, res) => {
   res.send(req.params.id);
 });
 
-app.get('/api/posts/:year/:month', (req, res) => {
-  res.send(req.params);
-});
+// app.get('/api/posts/:year/:month', (req, res) => {
+//   res.send(req.params);
+// });
 
 // http://localhost:3000/api/posts/2000/10?sortBy=name
 app.get('/api/posts/:year/:month', (req, res) => {
