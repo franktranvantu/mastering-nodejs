@@ -1,1 +1,1 @@
-# Handling HTTP DELETE Requests
+# Middleware
