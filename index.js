@@ -1,15 +1,15 @@
-console.log('Before');
-getUser(1, user => {
-    getRepositories(user.gitHubUsername, repositories => {
-        getCommits(repositories[0], commits => {
-            console.log(commits);
-        });
-    });
-});
-console.log('After');
+getUser(1, getRepositoriesByUser);
 
 function displayCommits(commits) {
     console.log(commits);
+}
+
+function getCommitsByRepository(repositories) {
+    getCommits(repositories[0], displayCommits);
+}
+
+function getRepositoriesByUser(user) {
+    getRepositories(user.gitHubUsername, getCommitsByRepository);
 }
 
 function getUser(id, callback) {
@@ -22,7 +22,7 @@ function getUser(id, callback) {
 function getRepositories(username, callback) {
     setTimeout(() => {
         console.log(`Getting repositories from username ${username}...`);
-        callback(['repo1', 'repo2', 'repo3']);
+        callback(['Repository 1', 'Repository 2', 'Repository 3']);
     }, 2000);
 }
 
