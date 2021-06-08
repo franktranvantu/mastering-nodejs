@@ -1,1 +1,1 @@
-# Handling HTTP PUT Requests
+# Handling HTTP DELETE Requests
