@@ -1,1 +1,1 @@
-# Route Parameters
+# Handling HTTP GET Requests
