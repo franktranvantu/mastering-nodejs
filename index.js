@@ -1,10 +1,19 @@
+// Asynchronous
 console.log('Before');
 getUser(1, user => {
-    console.log(user);
     getRepositories(user.gitHubUsername, repositories => {
-        console.log(repositories);
+        getCommits(repositories[0], commits => {
+
+        });
     });
 });
+console.log('After');
+
+// Synchronous
+console.log('Before');
+const user = getUser(1);
+const repositories = getRepositories(user.gitHubUsername);
+const commits = getCommits(repositories[0]);
 console.log('After');
 
 function getUser(id, callback) {
@@ -19,4 +28,8 @@ function getRepositories(username, callback) {
         console.log('Calling git hub api...');
         callback(['repo1', 'repo2', 'repo3']);
     }, 2000);
+}
+
+function getCommits() {
+
 }
