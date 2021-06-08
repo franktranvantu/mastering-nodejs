@@ -1,5 +1,5 @@
-# Installing a Node Package
+# Package Dependencies
 
 ```bash
-npm i underscore
+ls node_modules
 ```
