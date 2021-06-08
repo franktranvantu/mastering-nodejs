@@ -1,5 +1,1 @@
-# Templating Engines
-
-```bash
-npm i pug
-```
+# Structuring Express Applications
