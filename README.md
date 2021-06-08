@@ -1,6 +1,5 @@
-# Package.json
+# Installing a Node Package
 
 ```bash
-npm init
-npm init --yes
+npm i underscore
 ```
