@@ -1,5 +1,5 @@
-# Configuration
+# Templating Engines
 
 ```bash
-npm i config
+npm i pug
 ```
