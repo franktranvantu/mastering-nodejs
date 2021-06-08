@@ -1,6 +1,5 @@
-# Third-party Middleware
+# Configuration
 
 ```bash
-npm i helmet
-npm i morgan
+npm i config
 ```

@@ -1,0 +1,6 @@
+{
+  "name": "Mastering NodeJS - Development",
+  "mail": {
+    "host": "dev-mail-server"
+  }
+}

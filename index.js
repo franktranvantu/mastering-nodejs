@@ -2,12 +2,10 @@ const express = require('express');
 const Joi = require('joi');
 const helmet = require('helmet');
 const morgan = require('morgan');
+const config = require('config');
 const logger = require('./logger');
 
 const app = express();
-
-// console.log(`NODE_ENV: ${process.env.NODE_ENV}`);
-// console.log(`app: ${app.get('env')}`);
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true})); // key=value&key=value => req.body
@@ -18,6 +16,10 @@ if (app.get('env') === 'development') {
   app.use(morgan('tiny'));
 }
 app.use(logger);
+
+console.log(`Application name: ${config.get('name')}`);
+console.log(`Mail server host: ${config.get('mail.host')}`);
+console.log(`Mail server password: ${config.get('mail.password')}`);
 
 const courses = [
   {id: 1, name: 'Course 1'},
