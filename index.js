@@ -6,11 +6,17 @@ const logger = require('./logger');
 
 const app = express();
 
+// console.log(`NODE_ENV: ${process.env.NODE_ENV}`);
+// console.log(`app: ${app.get('env')}`);
+
 app.use(express.json());
 app.use(express.urlencoded({extended: true})); // key=value&key=value => req.body
 app.use(express.static('public'));
 app.use(helmet());
-app.use(morgan('tiny'));
+if (app.get('env') === 'development') {
+  console.log('Morgan enabled...');
+  app.use(morgan('tiny'));
+}
 app.use(logger);
 
 const courses = [
