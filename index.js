@@ -7,42 +7,29 @@ const options = {
     },
     authSource: 'admin'
 }
-mongoose.connect('mongodb://localhost/playground', options)
-    .then(() => console.log('Connected to MongoDB.'))
-    .catch(error => console.error('Could not connect to MongoDB.', error));
+mongoose.connect('mongodb://localhost/mongo-exercises', options);
 
 const courseSchema = new mongoose.Schema({
     name: String,
     author: String,
     tags: [String],
-    date: {type: Date, default: Date.now},
-    isPublished: Boolean
+    date: Date,
+    isPublished: Boolean,
+    price: Number
 });
+
 const Course = mongoose.model('Course', courseSchema);
 
-async function createCourse() {
-    const course = new Course({
-        name: 'Mastering NodeJS',
-        author: 'Frank',
-        tags: ['node', 'backend'],
-        isPublished: true
-    });
-    const result = await course.save();
-    console.log(result);
+async function getCourses() {
+    return await Course
+        .find({isPublished: true, tags: 'backend'})
+        .sort({name: 1})
+        .select({name: 1, author: 1});
 }
 
-async function getCourses() {
-    const pageNumber = 2;
-    const pageSize = 10;
-    // /api/courses?pageNumber=2&pageSize=10
-
-    const courses = await Course
-        .find({author: 'Frank', isPublished: true})
-        .skip((pageNumber - 1) * pageSize)
-        .limit(pageSize)
-        .sort({name: 1})
-        .select({name: 1, tags: 1});
+async function run() {
+    const courses = await getCourses();
     console.log(courses);
 }
 
-getCourses();
+run();
