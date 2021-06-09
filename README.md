@@ -1,1 +1,1 @@
-# Updating a Document - Query First
+# Updating a Document- Update First
