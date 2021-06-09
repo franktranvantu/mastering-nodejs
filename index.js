@@ -12,7 +12,7 @@ mongoose.connect('mongodb://localhost/playground', options)
     .catch(error => console.error('Could not connect to MongoDB.', error));
 
 const courseSchema = new mongoose.Schema({
-    name: String,
+    name: {type: String, required: true},
     author: String,
     tags: [String],
     date: {type: Date, default: Date.now},
@@ -22,13 +22,18 @@ const Course = mongoose.model('Course', courseSchema);
 
 async function createCourse() {
     const course = new Course({
-        name: 'Mastering NodeJS',
+        // name: 'Mastering NodeJS',
         author: 'Frank',
         tags: ['node', 'backend'],
         isPublished: true
     });
-    const result = await course.save();
-    console.log(result);
+    try {
+        // course.validate();
+        const result = await course.save();
+        console.log(result);
+    } catch (ex) {
+        console.error(ex.message);
+    }
 }
 
 async function getCourses() {
@@ -60,4 +65,4 @@ async function deleteCourse(id) {
     console.log(course);
 }
 
-deleteCourse('60c04ec15dc58ca6306ed806');
+createCourse();
