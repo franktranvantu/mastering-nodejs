@@ -1,1 +1,1 @@
-# Validation Errors
+# SchemaType Options
