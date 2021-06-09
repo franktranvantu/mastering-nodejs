@@ -32,8 +32,6 @@ async function createCourse() {
 }
 
 async function getCourses() {
-    // or
-    // and
     const courses = await Course
         // Franklin
         // Franking
