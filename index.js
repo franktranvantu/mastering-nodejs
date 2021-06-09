@@ -34,7 +34,6 @@ async function createCourse() {
 async function getCourses() {
     const pageNumber = 2;
     const pageSize = 10;
-    // /api/courses?pageNumber=2&pageSize=10
 
     const courses = await Course
         .find({author: 'Frank', isPublished: true})
@@ -45,4 +44,19 @@ async function getCourses() {
     console.log(courses);
 }
 
-getCourses();
+async function updateCourse(id) {
+    const course = Course.findById(id);
+    if (!course) {
+        return;
+    }
+    course.isPublished = false;
+    course.author = 'Frank';
+    // course.set({
+    //     isPublished: false,
+    //     author: 'Frank'
+    // });
+    const result = await course.save();
+    console.log(result);
+}
+
+updateCourse('60c04ec15dc58ca6306ed806');
