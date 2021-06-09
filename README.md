@@ -1,1 +1,1 @@
-# Querying Documents
+# Comparison Query Operators
