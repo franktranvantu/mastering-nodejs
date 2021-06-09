@@ -1,1 +1,1 @@
-# Creating Settled Promises
+# Running Promises in Parallel

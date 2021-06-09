@@ -1,5 +1,19 @@
-const resolvedPromise = Promise.resolve({id: 1, name: 'Frank'});
-const rejectedPromise = Promise.reject(new Error('Rejected'));
+const facebook = new Promise(resolve => {
+    setTimeout(() => {
+        console.log('Calling Facebook api...')
+        resolve('Facebook');
+    }, 2000);
+});
 
-resolvedPromise.then(result => console.log(result));
-rejectedPromise.catch(error => console.error(error));
+const google = new Promise(resolve => {
+    setTimeout(() => {
+        console.log('Calling Google api...')
+        resolve('Google');
+    }, 2000);
+});
+
+// Promise.all([facebook, google])
+//     .then(result => console.log(result));
+
+Promise.race([facebook, google])
+    .then(result => console.log(result));
