@@ -5,7 +5,7 @@ const options = {
         user: 'admin',
         password: 'admin'
     },
-    authSource: "admin"
+    authSource: 'admin'
 }
 mongoose.connect('mongodb://localhost/playground', options)
     .then(() => console.log('Connected to MongoDB.'))
