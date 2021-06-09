@@ -27,6 +27,8 @@ function getRepositories(username, callback) {
 }
 
 function getCommits(repository, callback) {
-    console.log(`Getting commits from repository ${repository}...`);
-    callback(['Commit 1', 'Commit 2', 'Commit 3']);
+    setTimeout(() => {
+        console.log(`Getting commits from repository ${repository}...`);
+        callback(['Commit 1', 'Commit 2', 'Commit 3']);
+    }, 2000);
 }
