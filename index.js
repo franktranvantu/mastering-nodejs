@@ -3,7 +3,7 @@ console.log('Before');
 getUser(1, user => {
     getRepositories(user.gitHubUsername, repositories => {
         getCommits(repositories[0], commits => {
-
+            console.log(commits);
         });
     });
 });
@@ -14,6 +14,7 @@ console.log('Before');
 const user = getUser(1);
 const repositories = getRepositories(user.gitHubUsername);
 const commits = getCommits(repositories[0]);
+console.log(commits);
 console.log('After');
 
 function getUser(id, callback) {
