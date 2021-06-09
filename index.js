@@ -45,7 +45,7 @@ async function getCourses() {
 }
 
 async function updateCourse(id) {
-    const course = Course.findByIdAndUpdate(id, {
+    const course = await Course.findByIdAndUpdate(id, { // updateOne, updateMany
         $set: {
             isPublished: false,
             author: 'Frank'
