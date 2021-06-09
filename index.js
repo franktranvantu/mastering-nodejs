@@ -57,14 +57,15 @@ async function createCourse() {
         tags: [],
         isPublished: true,
         price: 20,
-        category: 'web'
+        category: '-'
     });
     try {
-        // course.validate();
         const result = await course.save();
         console.log(result);
     } catch (ex) {
-        console.error(ex.message);
+        for (let field in ex.errors) {
+            console.error(ex.errors[field].message);
+        }
     }
 }
 
