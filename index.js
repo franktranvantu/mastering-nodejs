@@ -2,10 +2,10 @@ const mongoose = require('mongoose');
 
 const options = {
     auth: {
-        user:'admin',
-        password:'admin'
+        user: 'admin',
+        password: 'admin'
     },
-    authSource:"admin"
+    authSource: 'admin'
 }
 mongoose.connect('mongodb://localhost/playground', options)
     .then(() => console.log('Connected to MongoDB.'))
