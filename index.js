@@ -3,7 +3,14 @@ const express = require('express');
 const genres = require('./routes/genres');
 
 const app = express();
-mongoose.connect('mongodb://localhost/vidly')
+const options = {
+    auth: {
+        user: 'admin',
+        password: 'admin'
+    },
+    authSource: 'admin'
+}
+mongoose.connect('mongodb://localhost/vidly', options)
     .then(() => console.log('Connected to MongoDB.'))
     .catch((error) => console.error('Could not connect to MongoDB.'));
 
