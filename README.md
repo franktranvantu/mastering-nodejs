@@ -1,1 +1,1 @@
-# Comparison Query Operators
+# Logical Query Operators
