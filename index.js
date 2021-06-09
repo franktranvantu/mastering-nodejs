@@ -35,10 +35,12 @@ async function getCourses() {
     // or
     // and
     const courses = await Course
+        // Franklin
+        // Franking
         // .find({author: 'Frank', isPublished: true})
-        .find()
-        .or([{author: 'Frank'}, {isPublished: true}])
-        .and([{name: 'Node'}, {tags: ['backend', 'node']}])
+        .find({author: /^Frank/i, isPublished: true}) // Starts with Frank
+        .find({author: /ing$/, isPublished: true}) // Ends with ing
+        .find({author: /.*Frank.*/, isPublished: true}) // Contains Frank
         .limit(10)
         .sort({name: 1})
         .select({name: 1, tags: 1});
