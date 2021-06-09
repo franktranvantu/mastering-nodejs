@@ -6,6 +6,7 @@
 //     });
 // });
 
+// Promise-base approach
 getUser(1)
     .then(user => getRepositories(user.gitHubUsername))
     .then(repositories => getCommits(repositories[0]))
