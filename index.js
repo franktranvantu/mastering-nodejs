@@ -7,11 +7,24 @@
 // });
 
 // Promise-base approach
-getUser(1)
-    .then(user => getRepositories(user.gitHubUsername))
-    .then(repositories => getCommits(repositories[0]))
-    .then(commits => console.log(commits))
-    .catch(error => console.error(error));
+// getUser(1)
+//     .then(user => getRepositories(user.gitHubUsername))
+//     .then(repositories => getCommits(repositories[0]))
+//     .then(commits => console.log(commits))
+//     .catch(error => console.error(error));
+
+// Async/await
+async function displayCommits() {
+    try {
+        const user = await getUser(1);
+        const repositories = await getRepositories(user.gitHubUsername);
+        const commits = await getCommits(repositories[0]);
+        console.log(commits);
+    } catch (error) {
+        console.error(error);
+    }
+}
+displayCommits();
 
 function getUser(id) {
     return new Promise((resolve, reject) => {
