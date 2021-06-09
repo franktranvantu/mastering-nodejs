@@ -1,1 +1,1 @@
-# Replacing Callbacks with Promises
+# Consuming Promises

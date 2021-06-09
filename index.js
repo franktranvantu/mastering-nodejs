@@ -1,10 +1,16 @@
-getUser(1, user => {
-    getRepositories(user.gitHubUsername, repositories => {
-        getCommits(repositories[0], commits => {
-            console.log(commits);
-        });
-    });
-});
+// getUser(1, user => {
+//     getRepositories(user.gitHubUsername, repositories => {
+//         getCommits(repositories[0], commits => {
+//             console.log(commits);
+//         });
+//     });
+// });
+
+getUser(1)
+    .then(user => getRepositories(user.gitHubUsername))
+    .then(repositories => getCommits(repositories[0]))
+    .then(commits => console.log(commits))
+    .catch(error => console.error(error));
 
 function getUser(id) {
     return new Promise((resolve, reject) => {
@@ -26,7 +32,9 @@ function getRepositories(username) {
 
 function getCommits(repository) {
     return new Promise((resolve, reject) => {
-        console.log(`Getting commits from repository ${repository}...`);
-        resolve(['Commit 1', 'Commit 2', 'Commit 3']);
+        setTimeout(() => {
+            console.log(`Getting commits from repository ${repository}...`);
+            resolve(['Commit 1', 'Commit 2', 'Commit 3']);
+        }, 2000);
     })
 }
