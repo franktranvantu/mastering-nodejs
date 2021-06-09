@@ -32,18 +32,11 @@ async function createCourse() {
 }
 
 async function getCourses() {
-    // or
-    // and
     const courses = await Course
-        // Franklin
-        // Franking
-        // .find({author: 'Frank', isPublished: true})
-        .find({author: /^Frank/i, isPublished: true}) // Starts with Frank
-        .find({author: /ing$/, isPublished: true}) // Ends with ing
-        .find({author: /.*Frank.*/, isPublished: true}) // Contains Frank
+        .find({author: 'Frank', isPublished: true})
         .limit(10)
         .sort({name: 1})
-        .select({name: 1, tags: 1});
+        .count();
     console.log(courses);
 }
 
