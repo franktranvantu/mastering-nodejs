@@ -1,1 +1,1 @@
-# Hashing Passwords
+# Authenticating Users
