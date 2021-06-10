@@ -1,1 +1,1 @@
-# The Complete Node.js Course
+# Build the Rentals API
