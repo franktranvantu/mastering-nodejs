@@ -1,5 +1,5 @@
-# JSON Web Tokens
+# Storing Secrets in Environment Variables
 
 ```bash
-npm i jsonwebtoken
+npm i config
 ```
