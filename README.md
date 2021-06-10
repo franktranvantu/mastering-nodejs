@@ -1,5 +1,5 @@
-# Express Async Errors
+# Logging Errors
 
 ```bash
-npm i express-async-errors
+npm i winston
 ```
