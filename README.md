@@ -1,1 +1,5 @@
-# Authenticating Users
+# JSON Web Tokens
+
+```bash
+npm i jsonwebtoken
+```
