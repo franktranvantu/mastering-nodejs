@@ -11,6 +11,7 @@ const rentals = require('./routes/rentals');
 const users = require('./routes/users');
 const auth = require('./routes/auth');
 const error = require('./middleware/error');
+const logger = require('./middleware/logger');
 
 const app = express();
 
@@ -18,6 +19,12 @@ if (!config.get('jwtPrivateKey')) {
   console.error('FATAL ERROR: jwtPrivateKey is not defined.');
   process.exit(1);
 }
+
+process.on('uncaughtException', ex => {
+  logger.error(ex.message, ex);
+});
+
+throw new Error('Uncaught exception');
 
 const options = {
   auth: {
