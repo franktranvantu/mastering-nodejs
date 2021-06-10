@@ -1,5 +1,1 @@
 # Authorization Middleware
-
-```bash
-
-```
