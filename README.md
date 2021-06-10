@@ -1,5 +1,5 @@
-# Logging Errors
+# Logging to MongoDB
 
 ```bash
-npm i winston
+npm i winston-mongodb
 ```
