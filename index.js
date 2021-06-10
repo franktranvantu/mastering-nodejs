@@ -11,17 +11,18 @@ mongoose.connect('mongodb://localhost/playground', options)
   .then(() => console.log('Connected to MongoDB...'))
   .catch(err => console.error('Could not connect to MongoDB...', err));
 
-const Author = mongoose.model('Author', new mongoose.Schema({
+const authorSchema = new mongoose.Schema({
   name: String,
   bio: String,
   website: String
-}));
+});
+const Author = mongoose.model('Author', authorSchema);
 
 const Course = mongoose.model('Course', new mongoose.Schema({
   name: String,
   author: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Author'
+    type: authorSchema,
+    required: true
   }
 }));
 
@@ -46,6 +47,25 @@ async function createCourse(name, author) {
   console.log(result);
 }
 
+// async function updateCourse(courseId) {
+//   let course = await Course.findById(courseId);
+//   course.author.name = 'Frank Tran';
+//   course = await course.save();
+//   console.log(course);
+// }
+
+async function updateCourse(courseId) {
+  let course = await Course.findByIdAndUpdate(courseId, {
+    // $set: {
+    //   'author.name': 'Tu'
+    // }
+    $unset: {
+      'author': ''
+    }
+  }, {new: true});
+  console.log(course);
+}
+
 async function listCourses() {
   const courses = await Course
     .find()
@@ -55,8 +75,6 @@ async function listCourses() {
   console.log(courses);
 }
 
-// createAuthor('Frank', 'My bio', 'My Website');
+// createCourse('Node Course', new Author({name: 'Frank'}))
 
-// createCourse('Node Course', '60c19765f547ed17a78921f6')
-
-listCourses();
+updateCourse('60c19b8df82b7218b6fd7376');
