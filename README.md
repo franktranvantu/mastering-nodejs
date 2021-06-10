@@ -1,1 +1,1 @@
-# Creating the User Model
+# Registering Users
