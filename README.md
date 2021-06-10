@@ -1,1 +1,1 @@
-# Protecting Routes
+# Getting the Current User
