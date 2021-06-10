@@ -1,23 +1,60 @@
 const mongoose = require('mongoose');
-const express = require('express');
-const genres = require('./routes/genres');
-const customers = require('./routes/customers');
 
-const app = express();
 const options = {
-    auth: {
-        user: 'admin',
-        password: 'admin'
-    },
-    authSource: 'admin'
+  auth: {
+    user: 'admin',
+    password: 'admin'
+  },
+  authSource: 'admin'
 }
-mongoose.connect('mongodb://localhost/vidly', options)
-    .then(() => console.log('Connected to MongoDB.'))
-    .catch((error) => console.error('Could not connect to MongoDB.'));
+mongoose.connect('mongodb://localhost/playground', options)
+  .then(() => console.log('Connected to MongoDB...'))
+  .catch(err => console.error('Could not connect to MongoDB...', err));
 
-app.use(express.json());
-app.use('/api/genres', genres);
-app.use('/api/customers', customers);
+const Author = mongoose.model('Author', new mongoose.Schema({
+  name: String,
+  bio: String,
+  website: String
+}));
 
-const port = process.env.PORT || 3000;
-app.listen(port, () => console.log(`Listening on port ${port}...`));
+const Course = mongoose.model('Course', new mongoose.Schema({
+  name: String,
+  author: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Author'
+  }
+}));
+
+async function createAuthor(name, bio, website) {
+  const author = new Author({
+    name,
+    bio,
+    website
+  });
+
+  const result = await author.save();
+  console.log(result);
+}
+
+async function createCourse(name, author) {
+  const course = new Course({
+    name,
+    author
+  });
+
+  const result = await course.save();
+  console.log(result);
+}
+
+async function listCourses() {
+  const courses = await Course
+    .find()
+    .select('name');
+  console.log(courses);
+}
+
+// createAuthor('Frank', 'My bio', 'My Website');
+
+createCourse('Node Course', '60c19765f547ed17a78921f6')
+
+// listCourses();
