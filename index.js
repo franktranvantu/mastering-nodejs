@@ -4,18 +4,13 @@ const Joi = require('joi');
 Joi.objectId = require('joi-objectid')(Joi);
 const config = require('config');
 require('express-async-errors');
-require('./startup/routes')(express());
+const app = express();
+require('./startup/routes')(app);
 
 if (!config.get('jwtPrivateKey')) {
   console.error('FATAL ERROR: jwtPrivateKey is not defined.');
   process.exit(1);
 }
-
-process.on('unhandledRejection', ex => {
-  throw ex;
-});
-
-Promise.reject(new Error('Unhandled rejection'));
 
 const options = {
   auth: {
