@@ -1,12 +1,7 @@
-# Adding the Code to a Git Repository
+# Deploying to Heroku
 
-1. Install Git
-2. Adding `.gitignore` file in the root
-3. Enter following ignore folders:
-```
-node_modules\
-coverage\
-```
-4. Run command `git init`
+4. Run command `heroku create`
 5. Run command `git add .`
 6. Run command `git commit -m "First commit"`
+7. Run command `git remove -v`
+7. Run command `git push heroku master`
