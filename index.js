@@ -12,7 +12,6 @@ const rentals = require('./routes/rentals');
 const users = require('./routes/users');
 const auth = require('./routes/auth');
 const error = require('./middleware/error');
-const logger = require('./middleware/logger');
 
 const app = express();
 
