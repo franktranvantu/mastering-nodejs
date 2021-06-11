@@ -21,5 +21,6 @@ describe('greet', () => {
   it('should return the greeting message', () => {
     const result = greet('Frank');
     expect(result).toMatch(/Frank/);
+    expect(result).toContain('Frank');
   })
 })
