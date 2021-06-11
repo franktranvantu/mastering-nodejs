@@ -1,6 +1,9 @@
 const mongoose = require('mongoose');
 const express = require('express');
+const Joi = require('joi');
+Joi.objectId = require('joi-objectid')(Joi);
 const config = require('config');
+require('express-async-errors');
 const app = express();
 require('./startup/routes')(app);
 
