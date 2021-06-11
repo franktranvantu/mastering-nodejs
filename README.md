@@ -1,1 +1,1 @@
-# Extracting the Config Logic
+# Extracting the Validation Logic
