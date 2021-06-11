@@ -10,7 +10,7 @@ const options = {
 }
 module.exports = winston.createLogger({
   transports: [
-    new winston.transports.File({filename: 'logfile.log'}),
+    new winston.transports.File({filename: 'logs/logfile.log'}),
     new winston.transports.MongoDB({
       level: 'info',
       db: 'mongodb://localhost/vidly',
