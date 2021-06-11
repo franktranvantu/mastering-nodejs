@@ -4,7 +4,7 @@ const Joi = require('joi');
 Joi.objectId = require('joi-objectid')(Joi);
 const config = require('config');
 require('express-async-errors');
-require('./routes/startup/routes')(express());
+require('./startup/routes')(express());
 
 if (!config.get('jwtPrivateKey')) {
   console.error('FATAL ERROR: jwtPrivateKey is not defined.');
