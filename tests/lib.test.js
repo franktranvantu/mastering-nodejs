@@ -1,4 +1,4 @@
-const {absolute, greet} = require('../lib');
+const {absolute, greet, getCurrencies} = require('../lib');
 
 describe('absolute', () => {
   it('should return a positive number if input is positive', () => {
@@ -23,4 +23,21 @@ describe('greet', () => {
     expect(result).toMatch(/Frank/);
     expect(result).toContain('Frank');
   })
+})
+
+describe('getCurrencies', () => {
+  it('should return supported currencies', () => {
+    const result = getCurrencies();
+    // Too general
+    expect(result).toBeDefined();
+    expect(result).not.toBeNull();
+    // Too specific
+    expect(result[0]).toBe('USD');
+    expect(result[1]).toBe('AUD');
+    expect(result[2]).toBe('EUR');
+    // Proper way
+    expect(result).toContain('USD');
+    // Idea way
+    expect(result).toEqual(expect.arrayContaining(['EUR', 'USD']))
+  });
 })
