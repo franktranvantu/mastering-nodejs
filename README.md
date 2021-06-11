@@ -1,1 +1,6 @@
-# Showing Unhandled Exceptions on the Console
+# Preparing the App for Production
+
+```bash
+npm i helmet
+npm i compression
+```
