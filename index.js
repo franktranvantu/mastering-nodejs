@@ -4,6 +4,7 @@ const Joi = require('joi');
 Joi.objectId = require('joi-objectid')(Joi);
 const config = require('config');
 require('express-async-errors');
+const winston = require('winston');
 const genres = require('./routes/genres');
 const customers = require('./routes/customers');
 const movies = require('./routes/movies');
@@ -20,11 +21,11 @@ if (!config.get('jwtPrivateKey')) {
   process.exit(1);
 }
 
-process.on('uncaughtException', ex => {
-  logger.error(ex.message, ex);
+process.on('unhandledRejection', ex => {
+  throw ex;
 });
 
-throw new Error('Uncaught exception');
+Promise.reject(new Error('Unhandled rejection'));
 
 const options = {
   auth: {
