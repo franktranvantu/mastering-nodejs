@@ -10,6 +10,9 @@ const options = {
 }
 module.exports = winston.createLogger({
   transports: [
+    new winston.transports.Console({
+      handleExceptions: true
+    }),
     new winston.transports.File({filename: 'logs/logfile.log'}),
     new winston.transports.File({
       filename: 'logs/uncaughtExceptions.log',
