@@ -1,3 +1,9 @@
 {
-  "jwtPrivateKey": "vidly_jwtPrivateKey"
+  "jwtPrivateKey": "vidly_jwtPrivateKey",
+  "db": {
+    "url": "vidly_dbUrl",
+    "username": "vidly_dbUsername",
+    "password": "vidly_dbPassword",
+    "authSource": "vidly_dbAuthSource"
+  }
 }
