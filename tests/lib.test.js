@@ -1,4 +1,4 @@
-const {absolute} = require('../lib');
+const {absolute, greet} = require('../lib');
 
 describe('absolute', () => {
   it('should return a positive number if input is positive', () => {
@@ -15,4 +15,11 @@ describe('absolute', () => {
     const result = absolute(0);
     expect(result).toBe(0);
   });
+})
+
+describe('greet', () => {
+  it('should return the greeting message', () => {
+    const result = greet('Frank');
+    expect(result).toMatch(/Frank/);
+  })
 })
