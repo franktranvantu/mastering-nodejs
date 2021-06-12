@@ -6,5 +6,6 @@
     "username": "admin",
     "password": "admin",
     "authSource": "admin"
-  }
+  },
+  "requiresAuth": true
 }
