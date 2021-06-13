@@ -21,7 +21,7 @@ router.post('/', auth, asyncMiddleware(async (req, res) => {
   res.send(genre);
 }));
 
-router.put('/:id', asyncMiddleware(async (req, res) => {
+router.put('/:id', auth, asyncMiddleware(async (req, res) => {
   const { error } = validate(req.body); 
   if (error) return res.status(400).send(error.details[0].message);
 
